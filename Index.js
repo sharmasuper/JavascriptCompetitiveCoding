@@ -18,3 +18,9 @@ var addObj = new Person("John",20)
 addObj.Mohit()
 addObj.sayHello()
 
+//2nd example 
+
+
+
+
+
