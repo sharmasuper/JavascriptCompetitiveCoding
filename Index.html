@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer src="/Index.js"/>
+   
 </head>
 <body>
-     <div>
-         <h1>Mohit sharma</h1>
+     <div style="margin: 100px;">
+        <form id="accountform">
+            <input type="text" placeholder="customer name" id="custumerName" /><br/>
+            <input type="text" placeholder="Initial Balance" id="Balance" /> <br/>
+            <button>Button</button>
+        </form>
+
+ <hr>
+ <form id="depositForm" style="margin:50px">
+    <input type="number" placeholder="accountNumber" id="AccountNumber" /><br/>
+    <input type="number" placeholder="Amount" id="Amount" /> <br/>
+    <button>Deposit</button>
+</form>
+
+<form id="WithdrawForm" style="margin:50px">
+    <input type="number" placeholder="accountNumber" id="AccountNumber2"    /><br/>
+    <input type="number" placeholder="Amount" id="withDraw" /> <br/>
+    <button>withDraw</button>
+</form>
+
+
     </div>
 </body>
+<script  src="./Index.js"></script>
 </html>
