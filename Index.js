@@ -3,15 +3,33 @@ function BankAccount(customerName,balance=0){             //this constructor fun
     this.accountNumber = Date.now();
     this.balance = balance
 
-    this.deposit = function (amount) {
-        this.balance += amount
-    }
+    // this.deposit = function (amount) {
+    //     this.balance += amount
+    // }
 
-    this.withdraw = (amount) =>{
-        this.balance -= amount
-    }
+    // this.withdraw = (amount) =>{
+    //     this.balance -= amount
+    // }
     
 }
+
+
+
+const rakeshAccount  = new BankAccount("Rakesh K",1000)
+  console.log(rakeshAccount)
+
+BankAccount.prototype.deposit =  function (amount) {
+    this.balance += amount
+}
+
+BankAccount.prototype.withdraw = function(amount){
+        this.balance -= amount
+     }
+
+   
+rakeshAccount.withdraw(500)
+
+
 
 // const rakeshAccount  = new BankAccount("Rakesh K",1000)       // new yai constructor function sai new object banayaiga
 // const johnAccount  = new BankAccount("John K") 
