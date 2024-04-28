@@ -46,7 +46,7 @@ class SavingAccount extends BankAccount {
    TakePersonalLoan(amount) {
     console.log("Taking business Loan  " + amount)
    }
-
+   
 }
 
 
