@@ -1,22 +1,22 @@
-//array.entries()
-const array = ['Mohit',"sharma","Ram"] 
-R = array.entries()  //yai array ko itrator mai convert kartha h
+//Array.every()
+// const arr = [2,1,2,3,4,5,6]
+const arr = [2,,4,6,8]
+const er = arr.every((e)=>{
+    if(e%2===0){
+        return e
+    }
+})
 
-console.log(R)
+console.log(er)
 
-for (e of R) {
-    console.log(e)
-}
+//every method sabhi mai check karha h ki or return true or false kartha h
+const arr1 = [2,4,6,8]
+const ev = arr1.every((item)=>{
+      return item>1
+})
+ console.log(ev)
 
-//output - // (2) [0, 'Mohit']
-// Practice.js:6 (2) [1, 'sharma']
-// Practice.js:6 (2) [2, 'Ram']
- 
-for (e of array){
-    console.log(e)  
-}
 
-// //output
-// Mohit
-// Practice.js:13 sharma
-// Practice.js:13 Ram
+
+
+
