@@ -16,7 +16,10 @@ const ev = arr1.every((item)=>{
 })
  console.log(ev)
 
+const person = [
+    {name:"Mohit"},{name:"Ram"},{name:"Gopal"},{name:"ms"}
+]
 
-
-
+const check = person.every((item)=>item.name!==undefined)
+ console.log(check)
 
