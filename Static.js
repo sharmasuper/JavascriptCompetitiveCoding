@@ -1,88 +1,78 @@
- console.log("hello")
-// //yaha hum utility function mai kasai static ka use krtai h vo dekaigai
 
-// //increment
-// // let id = 1  
-class user {
-    static id = 1;
+console.log("hello cookie")
+//javascript cookie - cookies are small string directly store data in browser
 
-     static cache = {
-       1 : 'some value'
-     }
+//example - jaisai my name is mohit sharma ab yai brower mai store krnai kai liy cookies ka use kartha hu 
+//if we will do in console alert(document.cookie )   ,all the cookie we will get 
 
-    constructor (name,age,income) {
-        this.name = name;
-        this.age = age;
-        this.income = income;
-        // this.id = id++;
-        this.id = user.id++
-    }
-    // checkCache (){
-    //    // console.log(this.cache)
-    //    console.log(user.cache)
-    // }
+// if I go to browser and then go to inspact and will do alert(document.cookie) , i will get all cookie
 
-    //  static checkCache () {
-    //     console.log(this.cache)
-    //  }
+//Cookie are set by a web server using the set -Cookie http -header
+//when we do request in web server ,web server send data in response and it fill cookie in browser by using set cookie header
+//next Time, we wiil  do request of same server ,browser autometically will fill cookie in http header and  send it
+// this way server will find it which is user
+//example = supposed,i give a unique id each client , anyone user comes me . frist user i gives one id and second user i give two id.
 
-static {
-    console.log('Initilalized')   //esai hum block bhi bana sktai static method call hoga to yai bhi call hoga
-}
+//if we have a web server, help of the set-cookie i will give one of frist client then after that i will give two to the second client
+//the help of second client
 
-    //yaha hum dekai gai ki static property or method kaha kaha access hotai h
-
-    static hasInCache() {
-        console.log(user.cache)
-       // this.checkCache()
-        // console.log(this.cache) //yai this tabhi kam karai jab static method sai static property access kar rahai ho
-   
-    }
-    // static compareByAge(user1,user2){
-    //     return user1.age - user2.age;
-    // }
-    // static compareByincome(user1,user2){
-    //     return user1.income - user2.income;
-    // }
-}
-
-//user.hasInCache()   //yaha dekai gai to object lock ho jayga
-//    const user1 = new user("Rakesh",30,500)
-//    user1.hasInCache()  //error show
-user.hasInCache()
-
-// const user1 = new user("Rakesh",30,5000)   // yai static method hotai h unko mai user1(istance) kai sath use nahi kar sktai
-//                                          //kayoki static method ka user1 ka koi relation nhi h
-//                                          //static method or property class kai uper store ho jati h or normal property vo istance(user1) mai store ho jati h
-// const user2 = new user("John",40,10000)
-// const user3 = new user("Ram",20,7000)
-
-// mai chahtaha hu ki mai inhai age sai sort karu
-// const users = [user1,user2,user3]
-
-// users.sort((a,b)=>a.age - b.age);
-                //yai jo sorting h yai user sai related h mai chahta hu ki user kai ander yai jo method(sort ka) h unko store karai
-// users.sort(user.compareByAge)
-// users.sort(user.compareByincome)
-// console.log(user1)
-// console.log(user2)  //yaha id increase to hoti h but yai annti pattern
-// console.log(user3)
+//next time , second client whom i have given 2 id who will send request to me. what will i do when he sends me the . 
+// I will read the cookie Http-header .in cookie http-header,i will find the cookie which i set.
+// this way , I will be able to identify  the unique client
 
 
-//configuration 
+// if we do alert(document.cookie) . it give ( key = value paire)
+//delimited by semicolumn("") it means different cookie are set by semicolumn
+// one or more cookies are have in one page
+//if we set own cookie(name is mohit) in document page 
+//i will write simply command - document.cookie = "name=mohitsharma677"(supposed) 
 
-// class Config {
-//       static dbUser = 'username'
-//       static dbPassword = 'secret'
-//       static apiToken = 'abcd'
-
-
-// }
-
-// // const config = new Config()
-// console.log(Config.apiToken)
+//example - 
 
 
-console.log("hello")
+console.log("frist command check cookie",document.cookie)
+document.cookie = "name=mohitsharma7667"
+document.cookie = "name2=sharmaji1245"
+ 
+console.log(document.cookie)
+document.cookie = "name=sharma"
+console.log(document.cookie)
+
+//when we do document.cookie ,cookies are add not remove/replace .it only update cookie
+
+
+//second chapter - encode URI component
+
+//supposed I have key of cookie and i have a value
+//let i ask that key = prompt("enter your key") and I am asked value = prompt("enter your value")
+// example = 
+let key = prompt("enter your key")
+let value = prompt("enter your value")
+// document.cookie = `${key}=${value}`
+// console.log("hello",document.cookie)
+
+//but in prompt value if we write key = @3#; value = %$##;
+//this time it forget key and value so we will use encodeURI component
+
+
+document.cookie = `${encodeURIComponent(key)} = ${encodeURIComponent(value)}`
+console.log(document.cookie)
+//encodeURIComponent take all string but we need to decode it 
+//how to we do decoede it
+//ans = decodeURIComponent
+
+decodeURIComponent("UYY%3B")
+console.log(decodeURIComponent("UYY%3B"))  
+//we will fill key who had written in encodeURIComponent
+
+//document.cookie = "user=bhar;path=/a;expire=Tue,29 March2024 05:18:22GMt"
+//note - the name=value pair,after encodeUriComponent,should not exeed 4kb
+//Total no of Cookies per domain is limited to around 20+(exact number is browser dependant)
+console.log("hello cookie")
+
+
+
+
+
 
 
