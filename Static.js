@@ -1,20 +1,56 @@
-const obj = {
-   num: 100,
- };
- 
- // Setting "num" on globalThis to show how it is NOT used.
- globalThis.num = 42;
- 
- // A simple traditional function to operate on "this"
- const add = function (a, b, c) {
-   return this.num + a + b + c;
- };
- 
- console.log(add.call(obj, 1, 2, 3)); // 106
- console.log(add.apply(obj, [1, 2, 3])); // 106
- const boundAdd = add.bind(obj,1,2,3);
- const boundAdd1 = add.bind(obj);
- console.log(boundAdd()); // 106
- console.log(boundAdd1(1,2,3))
- 
+// Create a global property with `var`
+var x = 10;
 
+function createFunction1() {
+  const x = 20;
+  return new Function("return x;"); // this `x` refers to global `x`
+}
+
+function createFunction2() {
+  const x = 20;
+  function f() {
+     // this `x` refers to the local `x` above
+     function f11(){
+      return x
+     }
+     return f11()
+   }
+  function f3(){
+   return x+2
+  }
+  
+  return f()+f3();
+}
+const f2 = createFunction2()
+console.log(f2)
+      
+
+// const f1 = createFunction1();
+// console.log(f1()); // 10
+// const f2 = createFunction2();
+// console.log(f2()); // 20
+
+// const f1 = createFunction1()
+// console.log(f1())
+
+
+// Create a global property with `var`
+var x = 10;
+
+function createFunction1() {
+  const x = 20;
+  return new Function("return x;"); // this `x` refers to global `x`
+}
+
+function createFunction2() {
+  const x = 20;
+  function f() {
+    return x; // this `x` refers to the local `x` above
+  }
+  return f;
+}
+
+const f1 = createFunction1();
+console.log(f1()); // 10
+const f2 = createFunction2();
+console.log(f2()); // 20
