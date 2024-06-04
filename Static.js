@@ -1,17 +1,11 @@
-const func1 = function () {};
+const obj = {
+   log: ['a', 'b', 'c'],
+   get latest() {
+     return this.log[this.log.length - 1];
+   },
+ };
+ 
+ console.log(obj.latest);
 
-const object = {
-  func2: function () {},
-};
-
-console.log(func1.name);
-// Expected output: "func1"
-
-console.log(object.func2.name); 
-// Expected output: "func2"
-
-function some(){
-   return a+b
-}
-a = some.name
-console.log(a)
+ // Expected output: "c"
+ 
