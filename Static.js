@@ -1,25 +1,20 @@
-// a = [1,2,3,5].map(function(n){
-//    return  n<=1?1 :arguments.callee(n-1)*n
-// })
-// console.log(a)
-
-function foo(n) {
-   const f = () => arguments[0]+n ; // foo's implicit arguments binding. arguments[0] is n
-   return f();
- }
+const obj = {
+   num: 100,
+ };
  
- foo(3); // 3 + 3 = 6
-//  argunment - 
-//  Arguments(2) [3, 2, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+ // Setting "num" on globalThis to show how it is NOT used.
+ globalThis.num = 42;
  
- add = foo(3); // 3 + 3 = 6
- console.log(add)
+ // A simple traditional function to operate on "this"
+ const add = function (a, b, c) {
+   return this.num + a + b + c;
+ };
  
-
- function foo1(n){
-   return arguments[0]
- }
-
-b = foo1(10)
-console.log(b)
+ console.log(add.call(obj, 1, 2, 3)); // 106
+ console.log(add.apply(obj, [1, 2, 3])); // 106
+ const boundAdd = add.bind(obj,1,2,3);
+ const boundAdd1 = add.bind(obj);
+ console.log(boundAdd()); // 106
+ console.log(boundAdd1(1,2,3))
+ 
 
