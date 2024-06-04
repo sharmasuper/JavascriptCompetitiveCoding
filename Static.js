@@ -16,4 +16,10 @@ function foo(n) {
  console.log(add)
  
 
+ function foo1(n){
+   return arguments[0]
+ }
+
+b = foo1(10)
+console.log(b)
 
