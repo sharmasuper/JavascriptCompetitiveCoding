@@ -1,64 +1,21 @@
-// Proxy(target,Hndler) syntax is it
-// The Proxy object in JavaScript enables you to create a proxy for another object, allowing you to
-//  intercept and customize fundamental operations on that object. This provides a powerful mechanism for implementing 
-//  custom behavior for various operations such as
-//  property access, assignment, invocation, etc. Let's see an example:
 
+//step-1 Create an ArrayBuffer of a certain size(16 bytes in this example)
 
-// const target = {
-//   message1 :"mohit",
-//   message2 :"everyone"
-// }
-// const handler = {}
+const buffer = new ArrayBuffer(16)
+console.log(buffer.byteLength)
+//step-2 Encode a string into the ArrayBuffer
+const text = "Hello ! world"
+const encoder = new TextEncoder();
+const encodeBuffer = encoder.encode(text).buffer 
+// console.log(buffer) 
+console.log(encodeBuffer) // Output: ArrayBuffer containing the encoded string
+console.log(new Uint8Array(encodeBuffer)) // Uint8Array view of the encoded buffer
 
-// const Proxy1 = new Proxy(target,handler)
-// console.log(Proxy1.message1)
-// console.log(Proxy1.message2)
+//step-3 Decode the ArrayBuffer back to a string
 
-let target = {
-  name : "Alice",
-  age : 30
-}
-let handler = {
-  get : function(target,prop,received){
-    console.log(`Getting property ${prop}`);
-    return target[prop]; 
-  },
-  set : function (target,prop,value,received){
-    console.log(`Setting property "${prop}" to ${value}`);
-    target[prop] = value; 
-    return true;
-  }
-
-}
-
-let proxy = new Proxy(target, handler)
-console.log(proxy.name)
-proxy.age = 35;
-console.log(target.age)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const decoder = new TextDecoder(); 
+const decodedText = decoder.decode(new Uint8Array(encodeBuffer))
+console.log(decodedText)
 
 
 
