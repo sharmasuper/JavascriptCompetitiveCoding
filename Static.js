@@ -1,10 +1,8 @@
-// The escape() method in JavaScript is an older function that encodes a string so that it can be safely 
-// included in a URL. It encodes special characters, except *, +, -, . and @, using the percent-encoding scheme. 
-// However, it has been deprecated and replaced by encodeURI() and encodeURIComponent(), 
-// which are more robust and versatile for handling URL components.
+// The eval() function in JavaScript is a powerful and somewhat controversial feature that evaluates a string of JavaScript
+//  code in the context of the current execution environment. While it can be very useful, 
+// it should be used with caution due to potential security risks and performance implications.
+let x = 10;
+let y = 20;
+let result = eval('x+y');
 
-
-e = escape("hello mohit sharma")
-console.log(e)
-a = decodeURI(e)
-console.log(a)
+console.log(result); // Output: 30
