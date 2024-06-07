@@ -1,54 +1,12 @@
-// try{
-
-// const foo = function *(){
-//   yield 'a';
-//   yield 'b';
-//   yield 'c';
-// };
-// let str = ''
-// for(const val of foo()){
-//  str = str+val
-// }
-// console.log(str)
-// }catch(error){
-//   console.log("add Error",error)
-// }
-
-
-
 try{
-  
-   const foo = function *(){
-    yield 'a';
-    yield 'b';
-    yield 'c';
-   }
-   a = foo()
-   console.log(a.entries())
-  //  console.log(a.next())
-  //  console.log(a.next())
-  //  console.log(a.next())
-
-
-  function* infinite() {
-    let index = 0;
-  
-    while (true) {
-      yield index++;
-    }
+  function * foo(){
+    yield 1;
+    yield 2
+    yield 3
+    return "hello"// no effect these 
   }
-  add = infinite()
-  // console.log(add.next())
-  // console.log(add.next())
-  // console.log(add.next())
-  
-
-
+  const value = foo().return(100)
+  console.log(value)
 }catch(error){
-  console.log("show error",error) 
+  console.log(error)
 }
-
-
-
-
-
