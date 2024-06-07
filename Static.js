@@ -1,34 +1,60 @@
-// The parseFloat() function in JavaScript is used to parse a string and return a floating-point number. 
-// This function parses the string until it encounters a character that is not part of the floating-point 
-// notation, and then it returns the number parsed up to that point.
+// Proxy(target,Hndler) syntax is it
+// The Proxy object in JavaScript enables you to create a proxy for another object, allowing you to
+//  intercept and customize fundamental operations on that object. This provides a powerful mechanism for implementing 
+//  custom behavior for various operations such as
+//  property access, assignment, invocation, etc. Let's see an example:
 
-// parseFloat("string")
-// Basic usage 
 
-console.log(parseFloat("3.14"));       // Output: 3.14
-console.log(parseFloat("10.00"));      // Output: 10
+// const target = {
+//   message1 :"mohit",
+//   message2 :"everyone"
+// }
+// const handler = {}
 
-// With leading and trailing spaces
-console.log(parseFloat("  3.14  "));   // Output: 3.14
+// const Proxy1 = new Proxy(target,handler)
+// console.log(Proxy1.message1)
+// console.log(Proxy1.message2)
 
-// With extra text after the number
-console.log(parseFloat("3.14abc"));    // Output: 3.14
+let target = {
+  name : "Alice",
+  age : 30
+}
+let handler = {
+  get : function(target,prop,received){
+    console.log(`Getting property ${prop}`);
+    return target[prop]; 
+  },
+  set : function (target,prop,value,received){
+    console.log(`Setting property "${prop}" to ${value}`);
+    target[prop] = value; 
+    return true;
+  }
 
-// Starting with non-numeric text
-console.log(parseFloat("abc3.14"));    // Output: NaN
+}
 
-// Integers
-console.log(parseFloat("42"));         // Output: 42
+let proxy = new Proxy(target, handler)
+console.log(proxy.name)
+proxy.age = 35;
+console.log(target.age)
 
-// Exponential notation
-console.log(parseFloat("1.23e4"));     // Output: 12300
-console.log("add",parseFloat(100,8))
 
-// Negative numbers
-console.log(parseFloat("-123.45"));    // Output: -123.45
 
-// Strings that cannot be converted to numbers
-console.log(parseFloat("hello"));      // Output: NaN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
