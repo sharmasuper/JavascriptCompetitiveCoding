@@ -1,12 +1,23 @@
 try{
-  function * foo(){
-    yield 1;
-    yield 2
-    yield 3
-    return "hello"// no effect these 
-  }
-  const value = foo().return(100)
-  console.log(value)
+
+   function * gen(){
+    while(true){
+      try{
+        yield 42;
+        yield 34;
+      }catch(error){
+        console.log("add2 Error",error)
+      }
+    }
+   }
+   const g = gen() 
+   console.log(g.next()) 
+   console.log(g.next()) 
+   e =  g.throw(new Error("Something went wrong !!"))
+   console.log(e)
+  
+  
+
 }catch(error){
-  console.log(error)
+  console.log("add error",error)
 }
