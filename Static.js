@@ -2,13 +2,19 @@
 // specified locales are supported by the Intl.Collator object. This can be useful when you want to see if certain locales can 
 // be used for string comparison and sorting operations in a specific environment.
 
-const locals = ['en-US', 'fr-FR', 'es-ES', 'de-DE', 'ja-JP'];
-const supportedLocales = Intl.Collator.supportedLocalesOf(locals)
-console.log(supportedLocales)
-const list = ["mohit","mriyanka","mijaya"]
-list.sort(new Intl.Collator('es-Fs').compare)
-console.log(list)
+// const locals = ['en-US', 'fr-FR', 'es-ES', 'de-DE', 'ja-JP'];
+// const supportedLocales = Intl.Collator.supportedLocalesOf(locals)
+// console.log(supportedLocales)
+// const list = ["mohit","mriyanka","mijaya"]
+// list.sort(new Intl.Collator('es-Fs').compare)
+// console.log(list)
 
+
+const date = new Date()
+const formatter = new Intl.DateTimeFormat('en-us')
+// console.log(formatter)
+const formatterDate = formatter.format(date)
+console.log(formatterDate)
 
 
 
