@@ -1,37 +1,52 @@
-// The Intl.Collator.prototype.compare method in JavaScript is used to compare two 
-// strings according to the locale and options specified when creating the Intl.Collator object. 
-// This method returns a negative number if the first string comes before the second string, a positive number if the first string 
-// comes after the second string, and zero if the two strings are considered equal.
+// The Intl.Collator.prototype.resolvedOptions() method returns a new object 
+// with properties reflecting the locale and collation options computed during the initialization 
+// of the Collator object. This can be useful to understand which options were used, especially when 
+// defaults are involved or when the options were influenced by the environment.
 
-
-// Create a Collator for the English locale
-// const collator = new Intl.Collator('en');
-
-// // Compare two strings
-// console.log(collator.compare('apple', 'banana')); // Output: -1 (apple comes before banana)
-// console.log(collator.compare('banana', 'apple')); // Output: 1 (banana comes after apple)
-// console.log(collator.compare('apple', 'apple'));  // Output: 0 (strings are equal)
-
-// const fruits = ['banana', 'apple', 'orange', 'grape'];
-// const collator = new Intl.Collator('en');
-// fruits.sort(collator.compare);
-// console.log(fruits); // Output: ["apple", "banana", "grape", "orange"]
-
-const names = ['Zach', 'Åsa', 'Ana', 'Álvaro'];
-const collatorEN = new Intl.Collator('en');
-names.sort(collatorEN.compare);
-console.log(names); // Output: ["Ana", "Zach", "Åsa", "Álvaro"]
-
-const collatorSV = new Intl.Collator('sv');
-names.sort(collatorSV.compare);
-console.log(names); // Output: ["Ana", "Åsa", "Álvaro", "Zach"]
+// Here is an example that demonstrates how to use the resolvedOptions method with Intl.Collator:
 
 
 
+// const date = new Date();
+// const formatter = new Intl.DateTimeFormat('hi-IN', {
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric',
+// });
+// console.log(formatter.format(date)); // Output: "12 जून 2024" (format may vary)
 
+// Example: Using Intl.Collator and resolvedOptions
 
-
-
+// Create a Collator object for Hindi (India) locale with specific options
+const collator = new Intl.Collator('hi-IN', {
+    sensitivity: 'base',
+    ignorePunctuation: true,
+  });
+  
+  // Example strings to compare
+  const string1 = 'अनार';
+  const string2 = 'आम';
+  
+  // Compare the strings
+  console.log(`Comparison result: ${collator.compare(string1, string2)}`); // Output: -1
+  
+  // Retrieve and log the resolved options
+  const options = collator.resolvedOptions();
+  console.log('Resolved options:', options);
+  
+  /*
+  Output:
+  Resolved options: {
+    locale: "hi-IN",
+    usage: "sort",
+    sensitivity: "base",
+    ignorePunctuation: true,
+    collation: "default",
+    numeric: false,
+    caseFirst: "false"
+  }
+  */
+  
 
 
 
