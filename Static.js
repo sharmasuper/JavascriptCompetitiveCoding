@@ -1,8 +1,10 @@
-// The Intl.Collator constructor in JavaScript is used to create a new Collator object that enables 
-// language-sensitive string comparison. You can specify various options to tailor the string comparison behavior according to your needs. 
-// Here's a detailed example of how to use the Intl.Collator constructor:
+// The Intl.Collator.prototype.compare method in JavaScript is used to compare two 
+// strings according to the locale and options specified when creating the Intl.Collator object. 
+// This method returns a negative number if the first string comes before the second string, a positive number if the first string 
+// comes after the second string, and zero if the two strings are considered equal.
 
 
+// Create a Collator for the English locale
 // const collator = new Intl.Collator('en');
 
 // // Compare two strings
@@ -10,75 +12,19 @@
 // console.log(collator.compare('banana', 'apple')); // Output: 1 (banana comes after apple)
 // console.log(collator.compare('apple', 'apple'));  // Output: 0 (strings are equal)
 
-
-
-// const fruits = ['banana','apple','orange','grape']
-// const collator = new Intl.Collator('en')
-// console.log(collator)
+// const fruits = ['banana', 'apple', 'orange', 'grape'];
+// const collator = new Intl.Collator('en');
 // fruits.sort(collator.compare);
 // console.log(fruits); // Output: ["apple", "banana", "grape", "orange"]
 
+const names = ['Zach', 'Åsa', 'Ana', 'Álvaro'];
+const collatorEN = new Intl.Collator('en');
+names.sort(collatorEN.compare);
+console.log(names); // Output: ["Ana", "Zach", "Åsa", "Álvaro"]
 
-// const names = ['Zach', 'Åsa', 'Ana', 'Álvaro'];
-
-// // Collator for English locale
-// const collatorEN = new Intl.Collator('en');
-// names.sort(collatorEN.compare);
-// console.log(names); // Output: ["Ana", "Zach", "Åsa", "Álvaro"]
-
-// // Collator for Swedish locale
-// const collatorSV = new Intl.Collator('sv');
-// names.sort(collatorSV.compare);
-// console.log(names); // Output: ["Ana", "Åsa", "Álvaro", "Zach"]
-
-// const words = ['banana', 'Apple', 'orange', 'Grape'];
-// const collatorBase = new Intl.Collator('en', { sensitivity: 'base' });
-// words.sort(collatorBase.compare);
-// console.log(words); // Output: ["Apple", "banana", "Grape", "orange"]
-
-
-// const collatorCase = new Intl.Collator('en', { sensitivity: 'case' });
-// words.sort(collatorCase.compare);
-// console.log(words); // Output: ["Apple", "Grape", "banana", "orange"]
-
-
-// const accentedWords = ['resume', 'résumé', 'resumé'];
-// const collatorAccent = new Intl.Collator('en', { sensitivity: 'accent' });
-// accentedWords.sort(collatorAccent.compare);
-// console.log(accentedWords); // Output: ["resume", "resumé", "résumé"]
-
-
-// const phrases = ['Hello, world!', 'Hello world', 'Hello!'];
-// const collatorIgnorePunctuation = new Intl.Collator('en', { ignorePunctuation: true });
-// phrases.sort(collatorIgnorePunctuation.compare);
-// console.log(phrases); // Output: ["Hello world", "Hello, world!", "Hello!"]
-
-
-
-
-
-const items = ['résumé', 'resume', 'resumé'];
-const collatorCombined = new Intl.Collator('en', {
-  sensitivity: 'base',
-  ignorePunctuation: true,
-});
-items.sort(collatorCombined.compare);
-console.log(items); // Output: ["resume", "résumé", "resumé"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const collatorSV = new Intl.Collator('sv');
+names.sort(collatorSV.compare);
+console.log(names); // Output: ["Ana", "Åsa", "Álvaro", "Zach"]
 
 
 
