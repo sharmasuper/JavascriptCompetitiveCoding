@@ -1,17 +1,69 @@
-// The Intl object in JavaScript is part of the ECMAScript Internationalization API, which is used for 
-// language-sensitive string comparison, number formatting, date and time formatting, and more. It
+The Intl.Collator object in JavaScript is used to compare and sort strings in a way that is s
+ensitive to language differences. This can be particularly useful for sorting lists of names, words, or 
+other strings in a manner that is appropriate for a given locale.
 
-// is designed to help developers handle internationalization (i18n) and localization (l10n) needs efficiently. 
-// Here's a quick overview of some of the most commonly used Intl functionalities:
+const collator = new Intl.Collator('en');
+console.log(collator.compare('apple', 'banana')); // Output: -1 (means "apple" comes before "banana")
+console.log(collator.compare('banana', 'apple')); // Output: 1 (means "banana" comes after "apple")
+console.log(collator.compare('apple', 'apple'));  // Output: 0 (means the strings are equal)
 
-const date = new Date()
-const formatter = new Intl.DateTimeFormat('en-US',{
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit'
-})
-console.log(formatter)
-console.log(formatter.format(date)) // Output: "February 24, 2024"
+
+
+const fruits = ['banana','apple','orange','grape']
+const collator = new Intl.Collator('en')
+//which format do you have
+fruits.sort(collator.compare);
+console.log(fruits)
+
+
+
+const names = ['Zach','Asa','Ana','Alvirao']
+
+const collatorEn = new Intl.Collator('en')
+names.sort(collatorEn.compare)
+
+// console.log(names)
+
+
+const words = ['banana','Apple','orange','Grape'];
+const collatorCI = new Intl.Collator('en',{sensitivity:'base'})
+words.sort(collatorCI.compare);
+console.log(words)
+
+
+const collatorCS = new Intl.Collator('en', { sensitivity: 'case' });
+words.sort(collatorCS.compare);
+console.log(words); // Output: ["Apple", "Grape", "banana", "orange"]
+
+
+
+const accentedWords = ['resume', 'résumé', 'resumé'];
+const collatorBase = new Intl.Collator('en', { sensitivity: 'base' });
+accentedWords.sort(collatorBase.compare);
+console.log(accentedWords); // Output: ["resume", "résumé", "resumé"]
+
+
+const collatorAccent = new Intl.Collator('en', { sensitivity: 'accent' });
+accentedWords.sort(collatorAccent.compare);
+console.log(accentedWords); // Output: ["resume", "resumé", "résumé"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
