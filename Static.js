@@ -1,52 +1,15 @@
-// The Intl.Collator.prototype.resolvedOptions() method returns a new object 
-// with properties reflecting the locale and collation options computed during the initialization 
-// of the Collator object. This can be useful to understand which options were used, especially when 
-// defaults are involved or when the options were influenced by the environment.
+// The Intl.Collator.supportedLocalesOf() method in JavaScript is used to check which of the 
+// specified locales are supported by the Intl.Collator object. This can be useful when you want to see if certain locales can 
+// be used for string comparison and sorting operations in a specific environment.
 
-// Here is an example that demonstrates how to use the resolvedOptions method with Intl.Collator:
+const locals = ['en-US', 'fr-FR', 'es-ES', 'de-DE', 'ja-JP'];
+const supportedLocales = Intl.Collator.supportedLocalesOf(locals)
+console.log(supportedLocales)
+const list = ["mohit","mriyanka","mijaya"]
+list.sort(new Intl.Collator('es-Fs').compare)
+console.log(list)
 
 
-
-// const date = new Date();
-// const formatter = new Intl.DateTimeFormat('hi-IN', {
-//   year: 'numeric',
-//   month: 'long',
-//   day: 'numeric',
-// });
-// console.log(formatter.format(date)); // Output: "12 जून 2024" (format may vary)
-
-// Example: Using Intl.Collator and resolvedOptions
-
-// Create a Collator object for Hindi (India) locale with specific options
-const collator = new Intl.Collator('hi-IN', {
-    sensitivity: 'base',
-    ignorePunctuation: true,
-  });
-  
-  // Example strings to compare
-  const string1 = 'अनार';
-  const string2 = 'आम';
-  
-  // Compare the strings
-  console.log(`Comparison result: ${collator.compare(string1, string2)}`); // Output: -1
-  
-  // Retrieve and log the resolved options
-  const options = collator.resolvedOptions();
-  console.log('Resolved options:', options);
-  
-  /*
-  Output:
-  Resolved options: {
-    locale: "hi-IN",
-    usage: "sort",
-    sensitivity: "base",
-    ignorePunctuation: true,
-    collation: "default",
-    numeric: false,
-    caseFirst: "false"
-  }
-  */
-  
 
 
 
