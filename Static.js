@@ -1,21 +1,19 @@
+// The Intl object in JavaScript is part of the ECMAScript Internationalization API, which is used for 
+// language-sensitive string comparison, number formatting, date and time formatting, and more. It
 
-//step-1 Create an ArrayBuffer of a certain size(16 bytes in this example)
+// is designed to help developers handle internationalization (i18n) and localization (l10n) needs efficiently. 
+// Here's a quick overview of some of the most commonly used Intl functionalities:
 
-const buffer = new ArrayBuffer(16)
-console.log(buffer.byteLength)
-//step-2 Encode a string into the ArrayBuffer
-const text = "Hello ! world"
-const encoder = new TextEncoder();
-const encodeBuffer = encoder.encode(text).buffer 
-// console.log(buffer) 
-console.log(encodeBuffer) // Output: ArrayBuffer containing the encoded string
-console.log(new Uint8Array(encodeBuffer)) // Uint8Array view of the encoded buffer
+const date = new Date()
+const formatter = new Intl.DateTimeFormat('en-US',{
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit'
+})
+console.log(formatter)
+console.log(formatter.format(date)) // Output: "February 24, 2024"
 
-//step-3 Decode the ArrayBuffer back to a string
 
-const decoder = new TextDecoder(); 
-const decodedText = decoder.decode(new Uint8Array(encodeBuffer))
-console.log(decodedText)
 
 
 
