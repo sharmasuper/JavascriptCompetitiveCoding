@@ -1,12 +1,38 @@
-// Certainly! The Intl.DisplayNames.prototype.resolvedOptions() method is used to return an object with properties reflecting
-//  the locale and options computed during the initialization of the Intl.DisplayNames object.
+// The Intl.getCanonicalLocales() method is used to return an array containing the canonical locale names. 
+// This method can normalize locale identifiers to their canonical form
 
-// Create a new Intl.DisplayNames object for the 'en' locale with type 'region'
-const displayNames = new Intl.DisplayNames(['en'], { type: 'region', fallback: 'code' });
 
-// Use the resolvedOptions() method to get the computed options
-const options = displayNames.resolvedOptions();
+// Define an array of locale identifiers
+// const locales = [
+//     'EN-US',  // Uppercase variant
+//     'en-us',  // Lowercase variant
+//     'EN_us',  // Mixed case variant
+//     'fr-fr',  // French (France)
+//     'zh-Hans-CN',  // Chinese (Simplified, China)
+//     'zh-hans-cn'   // Chinese (Simplified, China) in lowercase
+//   ];
+  
+//   // Use the getCanonicalLocales method to get the canonical form of the locales
+//   const canonicalLocales = Intl.getCanonicalLocales(locales);
+  
+//   console.log(canonicalLocales);
+  
 
-console.log(options);
+// Define an array with some invalid locale identifiers
+
+const invalidLocales = [
+    'invalid-locale',
+    'en-XYZ',
+    'abc-123'
+  ];
+  
+  try {
+    const canonicalInvalidLocales = Intl.getCanonicalLocales(invalidLocales);
+    console.log(canonicalInvalidLocales);
+  } catch (e) {
+    console.error(e.message);
+  }
+  
+
 
 
