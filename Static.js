@@ -1,46 +1,33 @@
-const displayNames = new Intl.DisplayNames(['en'],{type:'region'});
-
-const regionNamesUs = displayNames.of('US')
-const regionNamesFR = displayNames.of('FR')
-const regionNamesJP = displayNames.of('JP')
-
-console.log(regionNamesUs);  // Output: "United States"
-console.log(regionNamesFR);  // Output: "France"
-console.log(regionNamesJP); 
+// The Intl.DisplayNames constructor method is used to create an instance of Intl.DisplayNames, 
+// which provides localized names for various types of codes, such as languages, regions, scripts, 
+// and currencies. Below are some examples demonstrating how to use the Intl.
+// DisplayNames constructor for different types of display names.
 
 
+const displayNamesLanguage = new Intl.DisplayNames(['en'],{type:'language'})
 
-// Create a new Intl.DisplayNames object for the 'en' locale
-const displayNamesLanguages = new Intl.DisplayNames(['en'], { type: 'language' });
+const languageNameEN = displayNamesLanguage.of('en')
+const languageNameFR = displayNamesLanguage.of('fr')
+const languageNameJP = displayNamesLanguage.of('ja')
 
-// Use the of() method to get the display name for a specific language code
-const languageNameEN = displayNamesLanguages.of('en');  // English
-const languageNameFR = displayNamesLanguages.of('fr');  // French
-const languageNameJP = displayNamesLanguages.of('ja');  // Japanese
+console.log(languageNameEN)
+console.log(languageNameFR)
+console.log(languageNameJP)
+// Regions
+const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+console.log(regionNames.of('BR'));  // Output: "Brazil"
 
-console.log(languageNameEN);  // Output: "English"
-console.log(languageNameFR);  // Output: "French"
-console.log(languageNameJP);  // Output: "Japanese"
+// Languages
+const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
+console.log(languageNames.of('es'));  // Output: "Spanish"
 
+// Currencies
+const currencyNames = new Intl.DisplayNames(['en'], { type: 'currency' });
+console.log(currencyNames.of('GBP'));  // Output: "British Pound"
 
-
-
-
-
-// Create a new Intl.DisplayNames object for the 'en' locale
-const displayNamesCurrencies = new Intl.DisplayNames(['en'], { type: 'currency' });
-
-// Use the of() method to get the display name for a specific currency code
-const currencyNameUSD = displayNamesCurrencies.of('USD');  // US Dollar
-const currencyNameEUR = displayNamesCurrencies.of('EUR');  // Euro
-const currencyNameJPY = displayNamesCurrencies.of('JPY');  // Japanese Yen
-
-console.log(currencyNameUSD);  // Output: "US Dollar"
-console.log(currencyNameEUR);  // Output: "Euro"
-console.log(currencyNameJPY);  // Output: "Japanese Yen"
-
-
-
+// Scripts
+const scriptNames = new Intl.DisplayNames(['en'], { type: 'script' });
+console.log(scriptNames.of('Hant'));  // Output: "Traditional Han"
 
 
 
